@@ -3,12 +3,13 @@
 import error_rules as er
 import matplotlib.pyplot as plt
 import numpy as np
+import math
 
 def theorI (M, R):
     return (.5 * M * (R ** 2))
 
-def expT (r, m, g, a): #expirimental torque
-    torq = r * m * (g - a)
+def expT (r, mass, g, a): #expirimental torque
+    torq = r * mass * (g - a)
     return torq
         
 
@@ -33,25 +34,55 @@ torqs = []
 alphas = []
 
 for (idx, mass) in enumerate(masses):
-    torqs.append(expT(r, mass, g, np.average(accels[idx])))
+    torqs.append(float(expT(r, mass, g, (sum(accels[idx]) / len(accels[idx])))))
 
 for (idx, accel) in enumerate(accels):
-    alphas.append(np.average(accel) / r)
-
-for alpha in alphas:
-    print(alpha, "W/s")
-    
+    alphas.append(float((sum(accels[idx]) / len(accels[idx])) / r))
     
 """
---------------------------Plotting Code (Here - end)------------------------
+-------------------------- Error Calc ------------------------
 """
 
-x = torqs
-y = alphas
-dy = [0]  #TODO: this should be your error in y array
+unc_torqs = []
+
+for (idx, torq) in enumerate(torqs):
+    a = (sum(accels[idx]) / len(accels[idx]))
+    unc_a = np.std(accels[idx]) / math.sqrt(len(accels[idx]))
+    values = [masses[idx], r, a]
+    uncs = [unc_mass, unc_r, unc_a]
+    exps = [1, 1, 1]
+    
+    unc_torqs.append(er.rule_4(torq, values, uncs, exps))
+    
+
+"""
+--------------------------Plotting Code ------------------------
+"""
+#Physics 
+#-------------------------------------------#
+#Data Section - Create Arrays for data. Perform necessary calculations
+#CHANGE THE VARIABLE NAMES and numbers to match your data
+xvariable_changeme = np.array(torqs) #what are units?
+yvariable_changeme = np.array(alphas) #what are units?
+
+
+#--------------------------------------------#
+#Create arrays for uncertainties
+#CHANGE THE VARIABLE NAME and numbers to match your data 
+err_yvariable_changeme = np.array(unc_torqs)
+
+
+#--------------------------------------------#
+#Re-assign variables as x, y, dy so that the following code may remain generic
+
+x = xvariable_changeme   #this should be the array you want to plot on the x axis
+y = yvariable_changeme
+dy = err_yvariable_changeme  #this should be your error in y array
 
 #----------------------------------------------#
-
+#Don't need to change anything in this section!
+ 
+#Find the intercept and slope, b and m, from Python's polynomial fitting function
 b,m=np.polynomial.polynomial.polyfit(x,y,1,w=dy)
 
 #Write the equation for the best fit line based on the slope and intercept
@@ -86,19 +117,21 @@ plt.scatter(x, y, color='blue', marker='o')
  
  
 #create labels  YOU NEED TO CHANGE THESE!!!
-plt.xlabel('xvariable_changeme')
-plt.ylabel('yvariable_changeme')
-plt.title('Title_changeme')
+plt.xlabel('Angular Acceleration (θ/s^2)')
+plt.ylabel('Torque (Nm)')
+plt.title('Moment of Inertia')
  
 plt.errorbar(x, y, yerr=dy, xerr=None, fmt="none") #don't need to plot x error bars
  
-plt.annotate('Slope (units_changeme) = {value:.{digits}E}'.format(value=m, digits=2),
+plt.annotate('Slope (Nm / (θ/s^2) ) = {value:.{digits}E}'.format(value=m, digits=2),
              (0.05, 0.9), xycoords='axes fraction')
  
-plt.annotate('Error in Slope (units_changeme) = {value:.{digits}E}'.format(value=dm, digits=1),
+plt.annotate('Error in Slope (Nm / (θ/s^2) ) = {value:.{digits}E}'.format(value=dm, digits=1),
              (0.05, 0.85), xycoords='axes fraction')
  
 plt.annotate('Goodness of fit = {value:.{digits}E}'.format(value=N, digits=2),
              (0.05, 0.80), xycoords='axes fraction')
 
 plt.show()
+
+print(m)
