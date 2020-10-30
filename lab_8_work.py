@@ -62,8 +62,8 @@ for (idx, torq) in enumerate(torqs):
 #-------------------------------------------#
 #Data Section - Create Arrays for data. Perform necessary calculations
 #CHANGE THE VARIABLE NAMES and numbers to match your data
-xvariable_changeme = np.array(torqs) #what are units?
-yvariable_changeme = np.array(alphas) #what are units?
+xvariable_changeme = np.array(alphas) #what are units?
+yvariable_changeme = np.array(torqs) #what are units?
 
 
 #--------------------------------------------#
@@ -134,4 +134,5 @@ plt.annotate('Goodness of fit = {value:.{digits}E}'.format(value=N, digits=2),
 
 plt.show()
 
-print(m)
+print('Theoretical Moment of Inertia = {:.8f}'.format(theorI(1.4369, 0.114)))
+print('Expirimental Moment of Inertia = {:.2f} ± {:.5f}'.format(m, dm))
