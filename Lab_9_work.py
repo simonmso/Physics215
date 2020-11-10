@@ -58,7 +58,7 @@ for mark in cyl_markings:
 water_V = 326 * (10 ** -6)  # m^3
 water_V_er = 1 * (10 ** -6)  # m^3
 water_mass = 0.4834 - 0.1617  # kg
-water_mass_er = 0.00  #TODO: find mass uncertainty
+water_mass_er = 0.001  
 water_density, water_density_er = calc_density(water_V, water_V_er, water_mass, water_mass_er)
 
 
@@ -83,7 +83,7 @@ print("\n-------------------- Part II - Theoretical -------------------\n")
 # cylinder measurements
 air_mass = 0.1113  # kg
 masses = [0.1021, 0.0919, 0.0826, 0.0726]  # kg
-m_unc = 0.000  #TODO: find m uncertainty
+m_unc = 0.001 
 
 Fs = []
 F_ers = []
