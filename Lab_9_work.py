@@ -98,3 +98,23 @@ for mass in masses:
 
 for (idx, f) in enumerate(Fs):
     print("F at {:.1f}% submerged: {:.3f} ± {:.8f} N".format(sub_cents[idx] * 100, f, F_ers[idx]))
+
+"""
+Output:
+------------------------- Prelab Quiz------------------------ 
+Theoretical Boyant Force at 50%: 0.07697 ± 0.00784933 N
+
+-------------------- Part I - Theoretical --------------------
+
+F at 24.8% submerged: 0.095 ± 0.00154621 N
+F at 49.7% submerged: 0.190 ± 0.00162697 N
+F at 73.8% submerged: 0.282 ± 0.00174820 N
+F at 100.0% submerged: 0.383 ± 0.00191953 N
+
+-------------------- Part II - Theoretical -------------------
+
+F at 24.8% submerged: 0.090 ± 0.00000000 N
+F at 49.7% submerged: 0.190 ± 0.00000000 N
+F at 73.8% submerged: 0.281 ± 0.00000000 N
+F at 100.0% submerged: 0.379 ± 0.00000000 N
+"""
