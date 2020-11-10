@@ -106,15 +106,15 @@ Theoretical Boyant Force at 50%: 0.07697 ± 0.00784933 N
 
 -------------------- Part I - Theoretical --------------------
 
-F at 24.8% submerged: 0.095 ± 0.00154621 N
-F at 49.7% submerged: 0.190 ± 0.00162697 N
-F at 73.8% submerged: 0.282 ± 0.00174820 N
-F at 100.0% submerged: 0.383 ± 0.00191953 N
+F at 24.8% submerged: 0.095 ± 0.00157413 N
+F at 49.7% submerged: 0.190 ± 0.00173128 N
+F at 73.8% submerged: 0.282 ± 0.00195619 N
+F at 100.0% submerged: 0.383 ± 0.00225840 N
 
 -------------------- Part II - Theoretical -------------------
 
-F at 24.8% submerged: 0.090 ± 0.00000000 N
-F at 49.7% submerged: 0.190 ± 0.00000000 N
-F at 73.8% submerged: 0.281 ± 0.00000000 N
-F at 100.0% submerged: 0.379 ± 0.00000000 N
+F at 24.8% submerged: 0.090 ± 0.00141421 N
+F at 49.7% submerged: 0.190 ± 0.00141421 N
+F at 73.8% submerged: 0.281 ± 0.00141421 N
+F at 100.0% submerged: 0.379 ± 0.00141421 N
 """
