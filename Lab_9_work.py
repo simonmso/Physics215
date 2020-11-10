@@ -58,7 +58,7 @@ for mark in cyl_markings:
 water_V = 326 * (10 ** -6)  # m^3
 water_V_er = 1 * (10 ** -6)  # m^3
 water_mass = 0.4834 - 0.1617  # kg
-water_mass_er = 0.001  
+water_mass_er = 0.0001
 water_density, water_density_er = calc_density(water_V, water_V_er, water_mass, water_mass_er)
 
 
@@ -83,7 +83,7 @@ print("\n-------------------- Part II - Theoretical -------------------\n")
 # cylinder measurements
 air_mass = 0.1113  # kg
 masses = [0.1021, 0.0919, 0.0826, 0.0726]  # kg
-m_unc = 0.001 
+m_unc = 0.0001
 
 Fs = []
 F_ers = []
@@ -106,15 +106,15 @@ Theoretical Boyant Force at 50%: 0.07697 ± 0.00784933 N
 
 -------------------- Part I - Theoretical --------------------
 
-F at 24.8% submerged: 0.095 ± 0.00157413 N
-F at 49.7% submerged: 0.190 ± 0.00173128 N
-F at 73.8% submerged: 0.282 ± 0.00195619 N
-F at 100.0% submerged: 0.383 ± 0.00225840 N
+F at 24.8% submerged: 0.095 ± 0.00154649 N
+F at 49.7% submerged: 0.190 ± 0.00162805 N
+F at 73.8% submerged: 0.282 ± 0.00175040 N
+F at 100.0% submerged: 0.383 ± 0.00192322 N
 
 -------------------- Part II - Theoretical -------------------
 
-F at 24.8% submerged: 0.090 ± 0.00141421 N
-F at 49.7% submerged: 0.190 ± 0.00141421 N
-F at 73.8% submerged: 0.281 ± 0.00141421 N
-F at 100.0% submerged: 0.379 ± 0.00141421 N
+F at 24.8% submerged: 0.090 ± 0.00014142 N
+F at 49.7% submerged: 0.190 ± 0.00014142 N
+F at 73.8% submerged: 0.281 ± 0.00014142 N
+F at 100.0% submerged: 0.379 ± 0.00014142 N
 """
