@@ -40,7 +40,7 @@ def plotfit(x,y,dy,title,xlabel,ylabel,slopeunit):
     plt.show()
     
     print (f"Slope = {m:.2f} {slopeunit}")
-    print (f"Error in slope = {dm:.2f} {slopeunit}")
+    print (f"Error in slope = {dm:.5f} {slopeunit}")
     print (f"Goodness of fit = {N:.2f}")
     
         
